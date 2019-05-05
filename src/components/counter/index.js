@@ -70,7 +70,7 @@ class ListMakanan extends React.Component {
     return (
       <div>
         <Grid container spacing={24}>
-          <Grid item xs={6} sm={3}>
+          <Grid item xm={6} xm={3}>
             <Paper>
               <Card item xm="3" style={{ height: "700px", width: "357px" }}>
                 <Link to="/gilawanget">

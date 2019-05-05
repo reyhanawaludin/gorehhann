@@ -59,7 +59,7 @@ class Restaurant extends React.Component {
         <br />
         <br />
         <Grid container spacing={24}>
-          <Grid item xs>
+          <Grid item xm="3a">
             <Paper className={classes.paper}>
               {" "}
               <Card className={classes.card}>
@@ -83,14 +83,16 @@ class Restaurant extends React.Component {
             </Paper>
           </Grid>
 
-          <Grid item xs>
+          <Grid item xm="3">
             <Paper className={classes.paper}>
               <Card className={classes.card}>
-                <CardMedia
-                  className={classes.media}
-                  image="https://www.kiplinger.com/kipimages/pages/17130.jpg"
-                  title="Mac Donnals"
-                />
+                <Link to="/gilawanget">
+                  <CardMedia
+                    className={classes.media}
+                    image="https://www.kiplinger.com/kipimages/pages/17130.jpg"
+                    title="Mac Donnals"
+                  />
+                </Link>
                 <CardHeader
                   avatar={
                     <Avatar aria-label="Recipe" className={classes.avatar}>
@@ -103,14 +105,16 @@ class Restaurant extends React.Component {
               </Card>
             </Paper>
           </Grid>
-          <Grid item xs>
+          <Grid item xm="3">
             <Paper className={classes.paper}>
               <Card className={classes.card}>
-                <CardMedia
-                  className={classes.media}
-                  image="https://ayamgepukmalaysia.files.wordpress.com/2017/08/screenshot_20170907-194554.jpg?w=1400"
-                  title="Paella dish"
-                />
+                <Link to="/gilawanget">
+                  <CardMedia
+                    className={classes.media}
+                    image="https://ayamgepukmalaysia.files.wordpress.com/2017/08/screenshot_20170907-194554.jpg?w=1400"
+                    title="Paella dish"
+                  />
+                </Link>
                 <CardHeader
                   avatar={
                     <Avatar aria-label="Recipe" className={classes.avatar}>
@@ -123,98 +127,16 @@ class Restaurant extends React.Component {
               </Card>
             </Paper>
           </Grid>
-          <Grid item xs>
+          <Grid item xm="3">
             <Paper className={classes.paper}>
               <Card className={classes.card}>
-                <CardMedia
-                  className={classes.media}
-                  image="https://ayamgepukmalaysia.files.wordpress.com/2017/08/screenshot_20170907-194554.jpg?w=1400"
-                  title="Paella dish"
-                />
-                <CardHeader
-                  avatar={
-                    <Avatar aria-label="Recipe" className={classes.avatar}>
-                      BK
-                    </Avatar>
-                  }
-                  title="Shrimp and Chorizo Paella"
-                  subheader="September 14, 2016"
-                />
-              </Card>
-            </Paper>
-          </Grid>
-        </Grid>
-        <Grid container spacing={24}>
-          <Grid item xs>
-            <Paper className={classes.paper}>
-              {" "}
-              <Card className={classes.card}>
-                <CardMedia
-                  className={classes.media}
-                  image="https://cdn.sribu.com/assets/media/contest_detail/2017/6/kontes-design-logo-untuk-warung-nasi-goreng-59361c92faaa261386ca3190/e674c12676.jpg"
-                  title="Paella dish"
-                />
-                <CardHeader
-                  avatar={
-                    <Avatar aria-label="Recipe" className={classes.avatar}>
-                      McD
-                    </Avatar>
-                  }
-                  title="Shrimp and Chorizo Paella"
-                  subheader="September 14, 2016"
-                />
-              </Card>
-            </Paper>
-          </Grid>
-
-          <Grid item xs>
-            <Paper className={classes.paper}>
-              <Card className={classes.card}>
-                <CardMedia
-                  className={classes.media}
-                  image="https://www.kiplinger.com/kipimages/pages/17130.jpg"
-                  title="Paella dish"
-                />
-                <CardHeader
-                  avatar={
-                    <Avatar aria-label="Recipe" className={classes.avatar}>
-                      R
-                    </Avatar>
-                  }
-                  title="Shrimp and Chorizo Paella"
-                  subheader="September 14, 2016"
-                />
-              </Card>
-            </Paper>
-          </Grid>
-          <Grid item xs>
-            <Paper className={classes.paper}>
-              <Card className={classes.card}>
-                <CardMedia
-                  className={classes.media}
-                  image="https://ayamgepukmalaysia.files.wordpress.com/2017/08/screenshot_20170907-194554.jpg?w=1400"
-                  title="Paella dish"
-                />
-                <CardHeader
-                  avatar={
-                    <Avatar aria-label="Recipe" className={classes.avatar}>
-                      BK
-                    </Avatar>
-                  }
-                  title="Shrimp and Chorizo Paella"
-                  subheader="September 14, 2016"
-                />
-              </Card>
-            </Paper>
-          </Grid>
-          <Grid item xs>
-            <Paper className={classes.paper}>
-              <Card className={classes.card}>
-                <CardMedia
-                  className={classes.media}
-                  image="https://ayamgepukmalaysia.files.wordpress.com/2017/08/screenshot_20170907-194554.jpg?w=1400"
-                  title="Paella dish"
-                />
+                <Link to="/gilawanget">
+                  <CardMedia
+                    className={classes.media}
+                    image="https://ayamgepukmalaysia.files.wordpress.com/2017/08/screenshot_20170907-194554.jpg?w=1400"
+                    title="Paella dish"
+                  />
+                </Link>
                 <CardHeader
                   avatar={
                     <Avatar aria-label="Recipe" className={classes.avatar}>

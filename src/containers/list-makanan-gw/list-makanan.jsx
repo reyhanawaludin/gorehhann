@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Grid, Button, Card, Paper } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import Counter from "../counter/index";
+
+import Counter from "../../components/counter";
 
 export default class List extends Component {
   state = {
@@ -63,7 +64,7 @@ export default class List extends Component {
         <br />
         <Grid container spacing={24}>
           {this.state.listmakanan.map((item, index) => (
-            <Grid item xs={3}>
+            <Grid item xm>
               <Counter
                 nomor={item.number}
                 tambahTotalHarga={this.tambahkan}
@@ -72,24 +73,47 @@ export default class List extends Component {
                 indexMakanan={index}
                 name={item.nama}
                 harga={item.price}
-                // number={this.state.number}
+                number={this.state.number}
               />
             </Grid>
           ))}
         </Grid>
         <br />
-
-        <Button style={{ marginRight: "2px" }}>Kembali</Button>
-
-        <br />
-        <br />
-
-        <Card style={{ textAlign: "center" }}>
-          <p style={{ fontWeight: "bold" }}>Total Pembayaran</p>
-          <h1>{this.state.total}</h1>
-          <Button outline color="danger" tag={Link} to="/payment">
-            BAYAR
+        <Link to="/listrestoran">
+          <Button
+            style={{
+              flexGrow: 1,
+              backgroundColor: "#ea4504",
+              width: "10%",
+              color: "white",
+              marginLeft: "45%"
+            }}
+          >
+            Kembali
           </Button>
+        </Link>
+        <br />
+        <br />
+        <br />
+
+        <Card style={{ backgroundColor: "#ea4504", textAlign: "center" }}>
+          <p style={{ fontWeight: "bold", color: "white" }}>
+            Total Pembayaran Rp : {this.state.total}
+          </p>
+          <Link to="/pembayaran">
+            <Button
+              style={{
+                backgroundColor: "white",
+                fontWeight: "bold",
+                color: "#ea4504",
+                width: "98%",
+                marginBottom: "1%"
+              }}
+            >
+              BAYAR
+              <h2 />
+            </Button>
+          </Link>
         </Card>
       </div>
     );

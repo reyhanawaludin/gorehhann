@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Card from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Card";
+import Grid from "@material-ui/core/Grid";
 import Gohan from "../assests/gohan.png";
 import Gocar from "../assests/gocar.jpeg";
 import Rehann from "../assests/rehhhann.png";
@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 
 const styles = theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 2
   },
   paper: {
     padding: theme.spacing.unit * 2,
@@ -28,21 +28,20 @@ function FullWidthGrid(props) {
 
   return (
     <div className={classes.root}>
-      <Card container spacing={24}>
-        <Card item xs={12}>
+      <Grid container spacing={24}>
+        <Grid item sm={12}>
           <Paper
             className={classes.paper}
             style={{ backgroundColor: "#ea4504", color: "white" }}
           >
             <h2>Anda lapar? GO-REHHANN aja!!!</h2>
             <p>
-              dengan GO-REHHANN kamu bisa mencari makanan yang kamu inginkan
-              lho!
+              dengan GO-REHHANN kamu bisa mencari makanan yang kamu inginkan!!!
             </p>
           </Paper>
-        </Card>
+        </Grid>
 
-        <Card item xs={12} sm={6}>
+        <Grid item xm={12} sm={6}>
           <Paper
             className={classes.paper}
             style={{ backgroundColor: "#ea4504" }}
@@ -60,8 +59,8 @@ function FullWidthGrid(props) {
               </Button>
             </Link>
           </Paper>
-        </Card>
-        <Card item xs={12} sm={6}>
+        </Grid>
+        <Grid item xm={12} sm={6}>
           <Paper
             className={classes.paper}
             style={{ backgroundColor: "#93e21c" }}
@@ -78,8 +77,8 @@ function FullWidthGrid(props) {
               <h4>Pesan</h4>
             </Button>
           </Paper>
-        </Card>
-        <Card item xs={6} sm={3}>
+        </Grid>
+        <Grid item xm={6} sm={3}>
           <Paper className={classes.paper}>
             <img src={Rehann} style={{ width: "75%", height: "105%" }} />
             <Button
@@ -93,8 +92,8 @@ function FullWidthGrid(props) {
               Pesan
             </Button>
           </Paper>
-        </Card>
-        <Card item xs={6} sm={3}>
+        </Grid>
+        <Grid item xm={6} sm={3}>
           <Paper
             className={classes.paper}
             style={{ backgroundColor: "#009e39" }}
@@ -111,8 +110,8 @@ function FullWidthGrid(props) {
               Pesan
             </Button>
           </Paper>
-        </Card>
-        <Card item xs={6} sm={3}>
+        </Grid>
+        <Grid item xm={6} sm={3}>
           <Paper className={classes.paper}>
             <img src={Gofood} style={{ width: "100%", height: "105%" }} />
             <Button
@@ -126,8 +125,8 @@ function FullWidthGrid(props) {
               Pesan
             </Button>
           </Paper>
-        </Card>
-        <Card item xs={6} sm={3}>
+        </Grid>
+        <Grid item xm={6} sm={3}>
           <Paper className={classes.paper}>
             <img src={Gocar} style={{ width: "108%", height: "185%" }} />
             <Button
@@ -141,8 +140,8 @@ function FullWidthGrid(props) {
               Pesan
             </Button>
           </Paper>
-        </Card>
-      </Card>
+        </Grid>
+      </Grid>
     </div>
   );
 }
