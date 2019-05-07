@@ -1,34 +1,36 @@
 import React, { Component } from "react";
-import CardFood from "../../components/cardFood/";
-import resto from "../../utils/db";
-import { Row, Col, Table } from "reactstrap";
-import { Button } from "@material-ui/core";
+import Header from "../../components/header-page";
+import restorants from "../../utils/db";
+import { Col, Row, Table } from "reactstrap";
+import CardFood from "../../components/cardFood";
 import { Link } from "react-router-dom";
-import Navbar from "../../components/navbar/navbar";
-
-class DashFood extends Component {
+import Button from "@material-ui/core/Button";
+export default class DashFood extends Component {
   componentWillMount() {
-    const data = resto.find(item => item.id === this.props.match.params.id);
-    const datafood = data.food;
+    const data = restorants.find(
+      item => item.id === this.props.match.params.id
+    );
+    const dataFood = data.food;
     this.setState({
-      fillfood: datafood
+      fillfood: dataFood
     });
-    console.log(datafood);
-    const addQty = data.food.forEach(o => {
+    console.log(dataFood);
+    const addQty = dataFood.forEach(o => {
       o.qty = 0;
     });
     console.log(addQty);
 
     console.log(this.state.fillfood);
   }
+
   componentDidMount() {
-    console.log(this.state.fillfood);
+    // console.log(this.state.fillfood);
   }
 
-  tambah = id => {
-    const { fillfood, orderan } = this.state;
-    const fillOrder = orderan.find(item => item.id === id);
+  plus = id => {
+    const { orderan, fillfood } = this.state;
     const fillFoods = fillfood.find(item => item.id === id);
+    const fillOrder = orderan.find(item => item.id === id);
     this.addPrice(fillFoods.harga);
     fillfood.map(o => {
       if (o.id === fillFoods.id) {
@@ -59,7 +61,7 @@ class DashFood extends Component {
       return;
     }
   };
-  kurang = id => {
+  minus = id => {
     const { orderan, fillfood } = this.state;
     const fillOrder = orderan.find(item => item.id === id);
     const fillFods = fillfood.find(item => item.id === id);
@@ -87,16 +89,23 @@ class DashFood extends Component {
           orderan: orderan.map(o => (o.id === fillOrder.id ? updateOrders : o))
         });
       }
-      this.kurangPrice(fillFods.harga);
     }
+    this.minusPrice(fillFods.harga);
   };
+
   addPrice = harga => {
     this.setState({
       total: this.state.total + harga
     });
   };
 
-  kurangPrice = harga => {
+  pay = () => {
+    const { orderan, total } = this.state;
+    sessionStorage.setItem("order", JSON.stringify(orderan));
+    sessionStorage.setItem("total", JSON.parse(total));
+  };
+
+  minusPrice = harga => {
     this.setState({
       total: this.state.total - harga
     });
@@ -107,74 +116,118 @@ class DashFood extends Component {
     orderan: [],
     total: 0
   };
-
   render() {
     return (
       <div>
-        <Navbar />
-        <h1 style={{ color: "#ea4504", textAlign: "center" }}>Menu Pesanan</h1>
-        <br />
-        <br />
-        <Row>
-          {this.state.fillfood.map(foods => {
-            return (
-              <Col sm>
-                {" "}
-                <CardFood
-                  nama={foods.nama}
-                  gambar={foods.gambar}
-                  harga={foods.price}
-                  qty={foods.qty}
-                  kurang={() => this.kurang(foods.id)}
-                  tambah={() => this.tambah(foods.id)}
-                />{" "}
-              </Col>
-            );
-          })}
-        </Row>
-        <br />
-        <br />
+        <Header name="Food" />
+        <div className="content" style={{ marginTop: 100 }}>
+          <Row>
+            {this.state.fillfood.map(foods => {
+              return (
+                <Col style={{ marginTop: 20 }}>
+                  <CardFood
+                    name={foods.nama}
+                    gambar={foods.gambar}
+                    harga={foods.harga}
+                    qty={foods.qty}
+                    minus={() => this.minus(foods.id)}
+                    plus={() => this.plus(foods.id)}
+                  />
+                </Col>
+              );
+            })}
+          </Row>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "#f5f5f5",
+            flexDirection: "column",
+            marginTop: 30,
+            minHeight: 300
+          }}
+        >
+          <br />
+          <br />
 
-        <Link to="/restos">
-          <Button
+          {/* <h4>Orderan Kamu Boss:</h4> */}
+          <div
             style={{
-              backgroundColor: "#ea4504",
-              color: "white",
-              width: "100%"
+              width: "90%",
+              backgroundColor: "#eeeeee",
+              color: "white"
             }}
           >
-            Kembali
-          </Button>
-        </Link>
-        <br />
-
-        <br />
-
-        <div>
-          <Table style={{ marginTop: 30 }}>
-            <thead style={{ backgroundColor: "#ea4504" }}>
-              <tr>
-                <th style={{ color: "white" }}>Pesanan Anda:</th>
-                <th style={{ color: "white" }}>Jumlah Pesanan:</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {this.state.orderan.map(orders => (
+            <Table>
+              <thead style={{ color: "#ea4504" }}>
                 <tr>
-                  <td>=>{orders.nama}</td>
-                  <td>=>{orders.qty}</td>
+                  <th>Nama Pesanan</th>
+                  <th>Jumlah Pesanan</th>
+                  <th>Total Harga </th>
+                  <th />
                 </tr>
-              ))}
-            </tbody>
-          </Table>
-          <h3 style={{ textAlign: "center" }}>Total = {this.state.total}</h3>
-          <Button style={{ backgroundColor: "#ea4504", color: "white" }}>
-            Bayar
+              </thead>
+              <tbody style={{ color: "#ea4504" }}>
+                {this.state.orderan.map(orders => (
+                  <tr>
+                    <td>{orders.nama}</td>
+                    <td>{orders.qty} x</td>
+                    <td>Rp {orders.price}</td>
+                    <td />
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+            <br />
+            <br />
+
+            <Table>
+              <thead style={{ color: "#ea4504" }}>
+                <tr>
+                  <th>Total Pembayaran</th>
+
+                  <th style={{ fontWeight: "bold" }}>
+                    : Rp {this.state.total}
+                  </th>
+                  <th />
+                  <th />
+                  <th />
+                </tr>
+              </thead>
+              <tbody style={{ color: "#ea4504" }}>
+                <tr>
+                  <td />
+                  <td />
+                  <td />
+
+                  <td />
+                  <td />
+                </tr>
+              </tbody>
+            </Table>
+          </div>
+          <br />
+          <br />
+
+          <Button
+            style={{
+              fontWeight: "bold",
+              backgroundColor: "#ea4504",
+              color: "white",
+              outline: "none",
+              width: "90%"
+            }}
+            variant="contained"
+            component={Link}
+            to="/chekout"
+            onClick={this.pay}
+          >
+            Pay Right Now
           </Button>
         </div>
       </div>
     );
   }
 }
-export default DashFood;

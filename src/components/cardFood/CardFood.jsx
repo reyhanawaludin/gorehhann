@@ -1,47 +1,63 @@
 import React, { Component } from "react";
-import { Card, CardImg, CardBody, Button } from "reactstrap";
-
+import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
+import {
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  CardSubtitle
+} from "reactstrap";
 export default class CardFood extends Component {
   render() {
-    const { id, nama, harga, gambar } = this.props;
     return (
-      <div>
-        <Card>
+      <div
+        style={{
+          justifyContent: "center",
+          display: "flex",
+          alignItems: "center"
+        }}
+      >
+        <Card
+          className="cardR"
+          style={{ maxWidth: 300, maxHeight: 500, borderRadius: 5 }}
+        >
           <CardImg
-            top
-            width="100%"
-            height="200"
-            src={gambar}
+            style={{ height: 200, width: 299 }}
+            src={this.props.gambar}
             alt="Card image cap"
           />
           <CardBody>
-            <center>
-              <h1>{nama}</h1>
-              <p> Harga : {harga}</p>
-              <p>jumlah :</p>
-              <h4>{this.props.qty}</h4>
-              <h1 />
-              <Button
-                outline
-                style={{
-                  width: 100
-                }}
-                style={{ backgroundColor: "#ea4504" }}
-                onClick={this.props.kurang}
-                color="white"
-              >
-                Kurang
-              </Button>
-              <Button
-                outline
-                style={{ width: 100 }}
-                onClick={this.props.tambah}
-                style={{ backgroundColor: "#ea4504" }}
-                color="white"
-              >
-                Tambah
-              </Button>{" "}
-            </center>
+            <CardTitle style={{ fontWeight: "bold" }}>
+              {this.props.name}
+            </CardTitle>
+            <CardSubtitle>Harga : Rp. {this.props.harga}</CardSubtitle>
+            <CardTitle style={{ fontWeight: "bold" }}>
+              <p>{this.props.qty}</p>
+            </CardTitle>
+            <Button
+              style={{
+                color: "white",
+                backgroundColor: "#ea4504",
+                marginTop: 30,
+                marginRight: 10
+              }}
+              onClick={this.props.minus}
+            >
+              Hapus
+            </Button>
+            <Button
+              style={{
+                backgroundColor: "#ea4504",
+                color: "white",
+                marginTop: 30,
+                marginLeft: 10
+              }}
+              onClick={this.props.plus}
+            >
+              Tambahkan
+            </Button>
           </CardBody>
         </Card>
       </div>
