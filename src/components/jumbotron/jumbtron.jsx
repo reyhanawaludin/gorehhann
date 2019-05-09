@@ -78,69 +78,6 @@ function FullWidthGrid(props) {
             </Button>
           </Paper>
         </Grid>
-        {/* <Grid item xm={6} sm={3}>
-          <Paper className={classes.paper}>
-            <img src={Rehann} style={{ width: "75%", height: "105%" }} />
-            <Button
-              style={{
-                backgroundColor: "#ea4504",
-                width: "93%",
-                height: "1%",
-                color: "white"
-              }}
-            >
-              Pesan
-            </Button>
-          </Paper>
-        </Grid>
-        <Grid item xm={6} sm={3}>
-          <Paper
-            className={classes.paper}
-            style={{ backgroundColor: "#009e39" }}
-          >
-            <img src={Grab} style={{ width: "75%", height: "105%" }} />
-            <Button
-              style={{
-                backgroundColor: "#ea4504",
-                width: "93%",
-                height: "1%",
-                color: "white"
-              }}
-            >
-              Pesan
-            </Button>
-          </Paper>
-        </Grid>
-        <Grid item xm={6} sm={3}>
-          <Paper className={classes.paper}>
-            <img src={Gofood} style={{ width: "100%", height: "105%" }} />
-            <Button
-              style={{
-                backgroundColor: "#ea4504",
-                width: "93%",
-                height: "1%",
-                color: "white"
-              }}
-            >
-              Pesan
-            </Button>
-          </Paper>
-        </Grid>
-        <Grid item xm={6} sm={3}>
-          <Paper className={classes.paper}>
-            <img src={Gocar} style={{ width: "108%", height: "185%" }} />
-            <Button
-              style={{
-                backgroundColor: "#ea4504",
-                width: "93%",
-                height: "1%",
-                color: "white"
-              }}
-            >
-              Pesan
-            </Button>
-          </Paper>
-        </Grid> */}
       </Grid>
     </div>
   );

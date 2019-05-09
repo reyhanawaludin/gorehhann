@@ -120,6 +120,7 @@ export default class DashFood extends Component {
     return (
       <div>
         <Header name="Food" />
+        <h1 style={{ color: "#ea4504", textAlign: "center" }}>Menu Makanan</h1>
         <div className="content" style={{ marginTop: 100 }}>
           <Row>
             {this.state.fillfood.map(foods => {
@@ -151,6 +152,18 @@ export default class DashFood extends Component {
         >
           <br />
           <br />
+          {/* <Link to="/restos">
+            <Button
+              style={{
+                backgroundColor: "#ea4504",
+                color: "white"
+              }}
+            >
+              Kembali
+            </Button>
+          </Link> */}
+          {/* <br />
+          <br /> */}
 
           {/* <h4>Orderan Kamu Boss:</h4> */}
           <div
@@ -188,11 +201,12 @@ export default class DashFood extends Component {
                 <tr>
                   <th>Total Pembayaran</th>
 
+                  <th />
+
+                  <th />
                   <th style={{ fontWeight: "bold" }}>
                     : Rp {this.state.total}
                   </th>
-                  <th />
-                  <th />
                   <th />
                 </tr>
               </thead>

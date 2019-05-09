@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Navbar from "../../components/navbar/navbar";
+import Navbar from "../../components/header-resto/";
 import Card from "../../components/card";
 import { Col, Row } from "reactstrap";
 import resto from "../../utils/db";
@@ -25,9 +25,8 @@ export default class Dashresto extends Component {
         <h1 style={{ color: "#ea4504", textAlign: "center" }}>
           Menu Restorant
         </h1>
-        <br />
-        <br />
-        <Row>
+
+        <Row style={{ marginTop: 100 }}>
           {this.state.resto.map(item => {
             return (
               <Col>
@@ -36,7 +35,8 @@ export default class Dashresto extends Component {
             );
           })}
         </Row>
-        <br/><br/>
+        <br />
+        <br />
         <Link to="/">
           <Button
             style={{

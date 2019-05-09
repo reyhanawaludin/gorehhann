@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
+import Button from "@material-ui/core/Button";
+
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
@@ -18,6 +20,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import Logo from "../navbar/logo.png";
 import { Link } from "react-router-dom";
+import Icon from "@material-ui/core/Icon";
 
 const styles = theme => ({
   root: {
@@ -168,18 +171,15 @@ class HeaderPage extends React.Component {
       <div className={classes.root}>
         <AppBar position="static" style={{ backgroundColor: "#ea4504" }}>
           <Toolbar>
-            {/* <IconButton
-              className={classes.menuButton}
-              component={Link}
-              to="/restos"
-            >
+            {/* <Icon component={Link} to="/">
               <img
-                style={{ width: "40%" }}
-                src="https://img.icons8.com/wired/2x/circled-left.png"
+                style={{ width: "100%" }}
+                src="https://cdn4.iconfinder.com/data/icons/outline-style-1/512/arrow-left-128.png"
               />
-            </IconButton> */}
+            </Icon> */}
+
             <img src={Logo} style={{ width: "170px", height: "70px" }} />
-            {/* <div className={classes.search}>
+            <div className={classes.search}>
               <div className={classes.searchIcon} />
               <InputBase
                 placeholder="Search…"
@@ -188,7 +188,7 @@ class HeaderPage extends React.Component {
                   input: classes.inputInput
                 }}
               />
-            </div> */}
+            </div>
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
               <IconButton color="inherit">

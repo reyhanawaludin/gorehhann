@@ -22,10 +22,10 @@ export default class cardResto extends Component {
       >
         <Card
           className="cardR"
-          style={{ maxWidth: 350, maxHeight: 500, borderRadius: 5 }}
+          style={{ maxWidth: 300, maxHeight: 500, borderRadius: 5 }}
         >
           <CardImg
-            style={{ height: 200, width: 350 }}
+            style={{ height: 200, width: 299 }}
             src={image}
             alt="Card image cap"
           />
@@ -42,6 +42,7 @@ export default class cardResto extends Component {
                 }}
                 tag={Link}
                 onClick={this.props.Choice}
+                variant="contained"
               >
                 Pesan
               </Button>

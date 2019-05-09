@@ -33,17 +33,19 @@ export default class CardFood extends Component {
               {this.props.name}
             </CardTitle>
             <CardSubtitle>Harga : Rp. {this.props.harga}</CardSubtitle>
-            <CardTitle style={{ fontWeight: "bold" }}>
-              <p>{this.props.qty}</p>
+            <CardTitle>
+              <p>Jumlah : {this.props.qty}</p>
             </CardTitle>
             <Button
               style={{
                 color: "white",
                 backgroundColor: "#ea4504",
                 marginTop: 30,
-                marginRight: 10
+                marginRight: 10,
+                justifyContent: "center"
               }}
               onClick={this.props.minus}
+              variant="contained"
             >
               Hapus
             </Button>
@@ -52,9 +54,11 @@ export default class CardFood extends Component {
                 backgroundColor: "#ea4504",
                 color: "white",
                 marginTop: 30,
-                marginLeft: 10
+                marginLeft: 10,
+                justifyContent: "center"
               }}
               onClick={this.props.plus}
+              variant="contained"
             >
               Tambahkan
             </Button>
